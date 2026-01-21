@@ -1,0 +1,19 @@
+.row{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.column{
+    max-width: 400px;
+}
+
+.item img{
+    width: 200px;
+    aspect-ratio: 1;
+}
+
+.loading, .error{
+    display: none;
+}
