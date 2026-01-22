@@ -1,23 +1,30 @@
-document.querySelector(".loading").style.display = "block";
-fetch("https://api.escuelajs.co/api/v1/products")
-    .then(response => response.json())
-    .then(data => showProduct(data))
-    .catch(error => {console.log(error); document.querySelector(".error").style.display = "block";})
-    .finally(()=> document.querySelector(".loading").style.display = "none")
+function fetchApi() {
+    const loading = document.querySelector(".loading");
+    const errorMsg = document.querySelector(".error");
+
+    loading.style.display = "block";
+    fetch("https://api.escuelajs.co/api/v1/products")
+        .then(response => response.json())
+        .then(data => showProduct(data))
+        .catch(error => { console.log(error); errorMsg.style.display = "block"; })
+        .finally(() => loading.style.display = "none")
 
 
-const productContainer = document.querySelector(".products-container");
+    const productContainer = document.querySelector(".products-container");
 
-function showProduct(data) {
-    console.log(data);
-    const cardCol = document.createElement("div");
-    cardCol.classList = "row";
-    cardCol.innerHTML = "";
-    data.forEach(element => {
-        cardCol.innerHTML += `
+    function showProduct(data) {
+        console.log(data);
+        const cardCol = document.createElement("div");
+        cardCol.classList = "row";
+        cardCol.innerHTML = "";
+        let imageSrc;
+
+        data.forEach(element => {
+            imageSrc = element.images[1] ?  element.images[0] : "https://placehold.co/400x400";
+            cardCol.innerHTML += `
                 <div class="column">
                 <div class="item">
-                    <img src= "${element.images[0]}" alt="${element.slug}">
+                    <img src= "${imageSrc}" alt="${element.slug}">
                     <div class="prod-details">
                         <h3 class="prod-title">${element.title}</h3>
                         <p class="prod-description">${element.description}</p>
@@ -26,6 +33,9 @@ function showProduct(data) {
                 </div>
             </div>
     `
-    });
-    productContainer.appendChild(cardCol);
+        });
+        productContainer.appendChild(cardCol);
+    }
 }
+
+fetchApi();

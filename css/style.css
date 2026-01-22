@@ -9,6 +9,12 @@
     max-width: 400px;
 }
 
+.item{
+    padding: 20px;
+    border: 1px solid #bcbbbbdd;
+    border-radius: 7px;
+}
+
 .item img{
     width: 200px;
     aspect-ratio: 1;
