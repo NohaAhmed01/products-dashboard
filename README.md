@@ -1,11 +1,12 @@
-# Products Dashboard 
+# Products Dashboard
 
-A web-based products dashboard that fetches and displays product information from an external API. The application features a responsive grid layout that showcases product images, titles, descriptions, and prices.
+A web-based products dashboard that fetches and displays product information from an external API. The application features a grid layout that showcases product images, titles, descriptions, and prices. it has features like search and category filtering.
 
 ## Features
 
-- **Dynamic Product Fetching**: Retrieves product data from the EscuelaJS API
-- **Responsive Grid Layout**: Displays products in a flexible, card-based grid that adapts to different screen sizes
+- **Dynamic Product Fetching**: Retrieves product data from the [EscuelaJS API](https://api.escuelajs.co/api/v1/products)
+- **Search**: Real-time search by product title—results update as you type in the search box
+- **Category Filter**: A dropdown populated with unique categories from the API; filter products by category or show all
 - **Loading States**: Shows a loading indicator while fetching data
 - **Error Handling**: Displays error messages when API requests fail
 - **Product Information Display**: Each product card shows:
