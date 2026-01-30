@@ -45,3 +45,9 @@
 #searchBox::placeholder {
     color: #e7e7e7;
 }
+
+select{
+    margin-inline: auto;
+    display: block;
+    margin-bottom: 40px;
+}
