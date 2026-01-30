@@ -1,4 +1,4 @@
-let products, category = [];
+let products = [];
 const productContainer = document.querySelector(".products-container");
 const loading = document.querySelector(".loading");
 const errorMsg = document.querySelector(".error");
@@ -11,7 +11,7 @@ function fetchApi() {
         .then(data => {
             showProduct(data);
             products = data;
-            let uniqueCategories = [...new Set(category)];
+            let uniqueCategories = [...new Set(products.map(p => p.category.name))];
             populateOptions(uniqueCategories);
             console.log("unique categories", uniqueCategories);
             filterCategories();
@@ -42,7 +42,6 @@ function showProduct(data) {
             </div>
         </div>
         `
-        category.push(element.category.name);
     });
     productContainer.innerHTML = "";
     productContainer.appendChild(cardCol);
